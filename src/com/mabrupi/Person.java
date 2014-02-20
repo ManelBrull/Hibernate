@@ -1,6 +1,14 @@
 package com.mabrupi;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
+@Entity(name="person")
 public class Person {
+	
+	@Id @GeneratedValue
 	private int idPerson;
 	private String name;
 	private String surname;

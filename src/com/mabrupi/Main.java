@@ -2,6 +2,9 @@ package com.mabrupi;
 
 import org.hibernate.Session;
 
+import com.mabrupi.hibernate.PersonDAO;
+import com.mabrupi.hibernate.utils.HibernateUtil;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -14,12 +17,14 @@ public class Main {
 		user2.setName("Ankita");  
 		user2.setSurname("Surname for ankita"); 
 		
-		Session ss=HibernateUtil.getSessionFactory().openSession();  
-		ss.beginTransaction();  
-		ss.save(user1);  
-		ss.save(user2);  
-		ss.getTransaction().commit();  
-		ss.close();  
+		new PersonDAO().savePerson(user1);
+		new PersonDAO().savePerson(user2);
+		
+		user1.setName("Nombre editado");
+		new PersonDAO().updatePerson(user1);
+		
+		System.out.println(user1.getName());
+		System.out.println(user2.getIdPerson());
 
 	}  
 }

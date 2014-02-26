@@ -6,10 +6,10 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.mabrupi.Person;
+import com.mabrupi.Address;
 import com.mabrupi.hibernate.utils.HibernateUtil;
 
-public class PersonDAO {
+public class AddressDAO {
 	private Session session;
 	private Transaction tx;
 	
@@ -20,10 +20,10 @@ public class PersonDAO {
 	
 	private void manejaExcepcion(HibernateException he) {
 		tx.rollback();
-		System.out.println("Ocurrió un error en hibernate manejando Personas");
+		System.out.println("Ocurrió un error en hibernate manejando direcciones");
 	}
 	
-	public boolean savePerson(Person p){
+	public boolean saveAddress(Address p){
 		boolean state = false;
 		try {
 			iniciaOperacion();
@@ -39,7 +39,7 @@ public class PersonDAO {
 		return state;
 	}
 	
-	public boolean updatePerson(Person p){
+	public boolean updateAddress(Address p){
 		boolean state = false;
 		try{
 			iniciaOperacion();
@@ -55,7 +55,7 @@ public class PersonDAO {
 		return state;
 	}
 	
-	public boolean deletePerson(Person p){
+	public boolean deleteAddress(Address p){
 		boolean state = false;
 		try{
 			iniciaOperacion();
@@ -71,13 +71,13 @@ public class PersonDAO {
 		return state;	
 	}
 	
-	public Person getPerson(int idPerson) 
+	public Address getAddress(int idAddress) 
 	{ 
-	    Person person = null;  
+	    Address person = null;  
 	    try 
 	    { 
 	        iniciaOperacion(); 
-	        person = (Person) session.get(Person.class, idPerson); 
+	        person = (Address) session.get(Address.class, idAddress); 
 	    } finally 
 	    { 
 	        session.close(); 
@@ -85,15 +85,15 @@ public class PersonDAO {
 	    return person; 
 	}
 	
-	public List<Person> getListPerson(){
-		List<Person> listPerson = null;
+	public List<Address> getListAddress(){
+		List<Address> listAdress = null;
 		try{
 			iniciaOperacion();
-			listPerson = session.createQuery("from person").list();
+			listAdress = session.createQuery("from adress").list();
 		} finally {
 			session.close();
 		}
-		return listPerson;
+		return listAdress;
 	}
 	
 	

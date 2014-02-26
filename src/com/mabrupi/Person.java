@@ -1,8 +1,11 @@
 package com.mabrupi;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity(name="person")
@@ -10,9 +13,16 @@ public class Person {
 	
 	@Id @GeneratedValue
 	private int idPerson;
+	@Column(nullable = false)
 	private String name;
+	@Column(nullable = false)
 	private String surname;
 	private int age;
+	private boolean activo;
+	
+	@ManyToOne
+	@JoinColumn(name="idAddress")
+	private Address homeAddress;
 	
 	public Person(){}
 
@@ -46,6 +56,22 @@ public class Person {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public Address getHomeAddress() {
+		return homeAddress;
+	}
+
+	public void setHomeAddress(Address homeAddress) {
+		this.homeAddress = homeAddress;
 	};
 	
 	

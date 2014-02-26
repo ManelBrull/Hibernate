@@ -96,6 +96,18 @@ public class PersonDAO {
 		return listPerson;
 	}
 	
+	public List<Person> getFiltroPerson(String filtro1){
+		List<Person> listPerson = null;
+		try{
+			iniciaOperacion();
+			listPerson = session.createQuery("from person").list();
+		} finally {
+			session.close();
+		}
+		return listPerson;
+	}
+	}
+	
 	
 	
 }

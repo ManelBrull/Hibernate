@@ -1,5 +1,7 @@
 package com.mabrupi;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import com.mabrupi.hibernate.AddressDAO;
@@ -31,15 +33,16 @@ public class Main {
 		System.out.println(address1.getIdAddress());
 		
 		user1.setHomeAddress(address1);
-//		user2.setHomeAddress(address1);
+		user2.setHomeAddress(address1);
 		
 		new PersonDAO().savePerson(user1);
-//		new PersonDAO().savePerson(user2);
-//		new AddressDAO().deleteAddress(address1);
+		new PersonDAO().savePerson(user2);
 		
-		Person p2 = new PersonDAO().getPerson(1);
-		System.out.println(p2.getHomeAddress().getCity());
-
+				
+		List <Person> p1 = new PersonDAO().getListPerson();
+		System.out.println(p1.size());
+		
+		System.exit(1);
 	}  
 }
 

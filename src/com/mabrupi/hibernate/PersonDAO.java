@@ -106,11 +106,10 @@ public class PersonDAO {
 		}
 		return listPerson;
 	}
-	}
-	
-	
-	
 }
+	
+	
+	
 
 
 

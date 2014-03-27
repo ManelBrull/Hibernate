@@ -5,8 +5,8 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test</property>
-        <property name="hibernate.connection.username">userTest</property>
+        <property name="hibernate.connection.url">jdbc:mysql://10.128.128.100/test</property>
+        <property name="hibernate.connection.username">TestUser</property>
         <property name="hibernate.connection.password">test</property>
         
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -24,8 +24,9 @@
         <property name="hbm2ddl.auto">create</property> 
         
         <!--  Mappings -->
-        <mapping class="com.mabrupi.Person"/>
-        <mapping class="com.mabrupi.Address"/>
+        <mapping class="com.mabrupi.Father"/>
+        <mapping class="com.mabrupi.ChildOne"/>
+        <mapping class="com.mabrupi.ChildTwo"/>
         
         
     </session-factory>
